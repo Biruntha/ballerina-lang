@@ -18,7 +18,6 @@
 package org.ballerinax.jdbc.actions;
 
 import org.ballerinalang.jvm.scheduling.Scheduler;
-import org.ballerinalang.jvm.values.ArrayValue;
 import org.ballerinalang.jvm.values.ObjectValue;
 import org.ballerinalang.jvm.values.TypedescValue;
 import org.ballerinalang.natives.annotations.BallerinaFunction;

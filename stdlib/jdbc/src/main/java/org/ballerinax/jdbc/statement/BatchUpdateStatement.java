@@ -53,11 +53,11 @@ public class BatchUpdateStatement extends AbstractSQLStatement {
     private final ObjectValue client;
     private final SQLDatasource datasource;
     private final String query;
-    private final Object[] parameters;
+    private final ArrayValue[] parameters;
     private final boolean rollbackAllInFailure;
 
     public BatchUpdateStatement(ObjectValue client, SQLDatasource datasource, String query,
-                                boolean rollbackAllInFailure, Strand strand, Object... parameters) {
+                                boolean rollbackAllInFailure, Strand strand, ArrayValue... parameters) {
         super(strand);
         this.client = client;
         this.datasource = datasource;
@@ -94,7 +94,7 @@ public class BatchUpdateStatement extends AbstractSQLStatement {
                 stmt.addBatch();
             }
             for (int index = 0; index < paramArrayCount; index++) {
-                Object[] params = (Object[]) parameters[index];
+                ArrayValue params = parameters[index];
                 ArrayValue generatedParams = constructParameters(params);
                 ProcessedStatement processedStatement = new ProcessedStatement(conn, stmt, generatedParams,
                         datasource.getDatabaseProductName());

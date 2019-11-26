@@ -18,7 +18,6 @@
 package org.ballerinax.jdbc.actions;
 
 import org.ballerinalang.jvm.scheduling.Scheduler;
-import org.ballerinalang.jvm.scheduling.Strand;
 import org.ballerinalang.jvm.values.ArrayValue;
 import org.ballerinalang.jvm.values.MapValue;
 import org.ballerinalang.jvm.values.ObjectValue;
@@ -40,7 +39,7 @@ import org.ballerinax.jdbc.statement.SQLStatement;
 public class BatchUpdate {
 
     public static MapValue<String, Object> nativeBatchUpdate(ObjectValue client, String sqlQuery,
-                                                             boolean rollbackAllInFailure, Object... parameters) {
+                                                             boolean rollbackAllInFailure, ArrayValue... parameters) {
         SQLDatasource datasource = (SQLDatasource) client.getNativeData(Constants.JDBC_CLIENT);
         SQLStatement batchUpdateStatement = new BatchUpdateStatement(client, datasource, sqlQuery,
                 rollbackAllInFailure, Scheduler.getStrand(), parameters);
