@@ -18,6 +18,7 @@
 package org.ballerinax.jdbc.actions;
 
 import org.ballerinalang.jvm.scheduling.Scheduler;
+import org.ballerinalang.jvm.values.ArrayValue;
 import org.ballerinalang.jvm.values.ObjectValue;
 import org.ballerinalang.natives.annotations.BallerinaFunction;
 import org.ballerinax.jdbc.Constants;
@@ -35,7 +36,7 @@ import org.ballerinax.jdbc.statement.UpdateStatement;
                    functionName = "nativeUpdate")
 public class Update {
 
-    public static Object nativeUpdate(ObjectValue client, String query, Object... parameters) {
+    public static Object nativeUpdate(ObjectValue client, String query, ArrayValue parameters) {
         SQLDatasource sqlDatasource = (SQLDatasource) client.getNativeData(Constants.JDBC_CLIENT);
         SQLStatement updateStatement = new UpdateStatement(client, sqlDatasource, query,
                 Scheduler.getStrand(), parameters);

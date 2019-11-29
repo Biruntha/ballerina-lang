@@ -38,7 +38,7 @@ public type Client client object {
         if (!self.clientActive) {
             return self.handleStoppedClientInvocation();
         }
-        return nativeCall(self, java:fromString(sqlQuery), recordType, ...parameters);
+        return nativeCall(self, java:fromString(sqlQuery), recordType, parameters);
     }
 
     # The select remote function implementation for JDBC Client to select data from tables.
@@ -52,7 +52,7 @@ public type Client client object {
         if (!self.clientActive) {
             return self.handleStoppedClientInvocation();
         }
-        return nativeSelect(self, java:fromString(sqlQuery), recordType, ...parameters);
+        return nativeSelect(self, java:fromString(sqlQuery), recordType, parameters);
     }
 
     # The update remote function implementation for JDBC Client to insert/delete/modify data and schema of the database.
@@ -66,7 +66,7 @@ public type Client client object {
         if (!self.clientActive) {
             return self.handleStoppedClientInvocation();
         }
-        return nativeUpdate(self, java:fromString(sqlQuery), ...parameters);
+        return nativeUpdate(self, java:fromString(sqlQuery), parameters);
     }
 
     # The batchUpdate remote function implementation for JDBC Client to execute batch operations.
@@ -114,16 +114,16 @@ public type Client client object {
 };
 
 function nativeSelect(Client jdbcClient, @untainted handle sqlQuery, typedesc<record {}>? recordType,
-    Param... parameters) returns @tainted table<record {}>|Error = @java:Method {
+    Param[] parameters) returns @tainted table<record {}>|Error = @java:Method {
         class: "org.ballerinax.jdbc.actions.Select"
     } external;
 
 function nativeCall(Client jdbcClient, @untainted handle sqlQuery, typedesc<record {}>[]? recordType,
-    Param... parameters) returns @tainted table<record {}>[]|()|Error = @java:Method {
+    Param[] parameters) returns @tainted table<record {}>[]|()|Error = @java:Method {
        class: "org.ballerinax.jdbc.actions.Call"
     } external;
 
-function nativeUpdate(Client jdbcClient, @untainted handle sqlQuery, Param... parameters)
+function nativeUpdate(Client jdbcClient, @untainted handle sqlQuery, Param[] parameters)
     returns UpdateResult|Error = @java:Method {
         class: "org.ballerinax.jdbc.actions.Update"
     } external;

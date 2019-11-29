@@ -95,11 +95,11 @@ public abstract class AbstractSQLStatement implements SQLStatement {
         this.strand = strand;
     }
 
-    ArrayValue constructParameters(Object... parameters) throws ApplicationException {
+    ArrayValue constructParameters(ArrayValue parameters) throws ApplicationException {
         ArrayValue parametersNew = new ArrayValueImpl(new BArrayType(SQL_PARAMETER_TYPE));
-        int paramCount = parameters.length;
+        int paramCount = parameters.size();
         for (int i = 0; i < paramCount; ++i) {
-            Object value = parameters[i];
+            Object value = parameters.get(i);
             MapValue<String, Object> paramRecord;
             BType type = TypeChecker.getType(value);
             if (type.getTag() == TypeTags.OBJECT_TYPE_TAG

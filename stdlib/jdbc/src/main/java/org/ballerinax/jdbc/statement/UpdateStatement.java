@@ -51,10 +51,10 @@ public class UpdateStatement extends AbstractSQLStatement {
     private final ObjectValue client;
     private final SQLDatasource datasource;
     private final String query;
-    private final Object[] parameters;
+    private final ArrayValue parameters;
 
     public UpdateStatement(ObjectValue client, SQLDatasource datasource, String query,
-                           Strand strand, Object... parameters) {
+                           Strand strand, ArrayValue parameters) {
         super(strand);
         this.client = client;
         this.datasource = datasource;

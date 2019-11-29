@@ -73,11 +73,11 @@ public class CallStatement extends AbstractSQLStatement {
     private final ObjectValue client;
     private final SQLDatasource datasource;
     private final String query;
-    private final Object[] parameters;
+    private final ArrayValue parameters;
     private final ArrayValue structTypes;
 
     public CallStatement(ObjectValue client, SQLDatasource datasource, String query, ArrayValue structTypes,
-                        Strand strand, Object... parameters) {
+                         Strand strand, ArrayValue parameters) {
         super(strand);
         this.client = client;
         this.datasource = datasource;
