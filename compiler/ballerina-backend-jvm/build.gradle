@@ -48,6 +48,7 @@ dependencies {
 
     interopImports project(':ballerina-io')
     interopImports project(':ballerina-time')
+    interopImports project(':ballerina-java')
 
     baloCreat project(':lib-creator')
 }

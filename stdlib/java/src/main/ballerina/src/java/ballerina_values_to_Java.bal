@@ -19,7 +19,7 @@
 # + value - the Ballerina `string` with which the `handle` is created
 # + return - the `handle` that refers to the Java String representation of the Ballerina `string`
 public function fromString(string value) returns handle {
-    return nativeFromString(value);
+    return nativeFromString(fromString(value));
 }
 
 # Returns a Ballerina `string` representation of the Java object referred by the `handle`.
@@ -65,30 +65,30 @@ public function createNull() returns handle {
 # + name - the name of the Java class
 # + return - the Java Class object for the class with the given name.
 public function getClass(string name) returns handle | error {
-    return nativeGetClass(name);
+    return nativeGetClass(fromString(name));
 }
 
-function nativeFromString(string value) returns handle = @java:Method {
+function nativeFromString(handle value) returns handle = @Method {
     name: "fromString",
     class: "org.ballerinalang.nativeimpl.java.FromString"
 } external;
 
-function nativeToString(@untainted handle value) returns string? = @java:Method {
+function nativeToString(handle value) returns string? = @Method {
     name: "toString",
     class: "org.ballerinalang.nativeimpl.java.ToString"
 } external;
 
-function nativeIsNull(@untainted handle value) returns boolean = @java:Method {
+function nativeIsNull(handle value) returns boolean = @Method {
     name: "isNull",
     class: "org.ballerinalang.nativeimpl.java.IsNull"
 } external;
 
-function nativeCreateNull() returns handle = @java:Method {
+function nativeCreateNull() returns handle = @Method {
     name: "createNull",
     class: "org.ballerinalang.nativeimpl.java.CreateNull"
 } external;
 
-function nativeGetClass(string value) returns handle = @java:Method {
+function nativeGetClass(handle value) returns handle = @Method {
     name: "getClass",
     class: "org.ballerinalang.nativeimpl.java.JavaUtils"
 } external;

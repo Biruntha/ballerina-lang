@@ -33,6 +33,9 @@ dependencies {
     implementation project(':ballerina-runtime')
     implementation project(':ballerina-logging')
     implementation project(':ballerina-runtime-api')
+
+    interopImports project(':ballerina-java')
+
     testCompile 'org.testng:testng'
     testCompile 'org.slf4j:slf4j-jdk14'
     testCompile project(':ballerina-test-utils')

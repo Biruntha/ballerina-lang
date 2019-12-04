@@ -35,6 +35,8 @@ dependencies {
     implementation project(':ballerina-logging')
     implementation project(':ballerina-runtime-api')
 
+    interopImports project(':ballerina-java')
+
     testCompile project(path: ':ballerina-test-common', configuration: 'tests')
     testCompile project(path: ':ballerina-test-utils', configuration: 'shadow')
     testCompile project(':ballerina-reflect')
