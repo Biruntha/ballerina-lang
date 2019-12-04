@@ -52,6 +52,7 @@ dependencies {
     interopImports project(':ballerina-java')
 
     baloCreat project(':lib-creator')
+    interopImports project(':ballerina-reflect')
 }
 
 createBalo {
