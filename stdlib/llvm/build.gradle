@@ -28,8 +28,6 @@ dependencies {
     implementation project(':ballerina-runtime')
     implementation project(':ballerina-lang:annotations')
     implementation project(':ballerina-core')
-
-    interopImports project(':ballerina-java')
 }
 
 createBalo {

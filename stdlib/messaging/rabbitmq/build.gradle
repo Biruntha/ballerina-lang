@@ -32,6 +32,7 @@ dependencies {
     implementation project(':ballerina-time')
 
     interopImports project(':ballerina-time')
+    interopImports project(':ballerina-java')
 
     implementation 'com.rabbitmq:amqp-client:5.7.3'
 
