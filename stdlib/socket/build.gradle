@@ -26,6 +26,8 @@ dependencies {
     implementation project(':ballerina-lang')
     implementation project(':lib-creator')
 
+    interopImports project(':ballerina-java')
+
     testCompile project(':ballerina-runtime-api')
     testCompile project(':ballerina-lang:annotations')
     testCompile project(':ballerina-utils')
