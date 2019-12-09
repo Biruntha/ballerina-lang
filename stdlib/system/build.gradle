@@ -42,7 +42,7 @@ dependencies {
     baloImplementation project(path: ':ballerina-java', configuration: 'baloImplementation')
 
     interopImports project(':ballerina-io')
-
+    interopImports project(':ballerina-java')
     interopImports project(':ballerina-io')
 
     testCompile project(':ballerina-test-utils')

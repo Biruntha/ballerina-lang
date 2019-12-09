@@ -28,6 +28,8 @@ dependencies {
     implementation project(':ballerina-lang:annotations')
     implementation project(':ballerina-java')
 
+    interopImports project(':ballerina-java')
+
     bir project(path: ':ballerina-utils', configuration: 'bir')
 }
 

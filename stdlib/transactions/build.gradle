@@ -66,6 +66,7 @@ dependencies {
     baloImplementation project(path: ':ballerina-java', configuration: 'baloImplementation')
 
     interopImports project(':ballerina-io')
+    interopImports project(':ballerina-java')
 
     baloCreat project(':lib-creator')
     implementation project(':ballerina-lang')

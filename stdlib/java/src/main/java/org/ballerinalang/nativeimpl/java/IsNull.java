@@ -17,7 +17,6 @@
  */
 package org.ballerinalang.nativeimpl.java;
 
-import org.ballerinalang.jvm.scheduling.Strand;
 import org.ballerinalang.jvm.values.HandleValue;
 import org.ballerinalang.natives.annotations.BallerinaFunction;
 
@@ -32,7 +31,7 @@ import org.ballerinalang.natives.annotations.BallerinaFunction;
 )
 public class IsNull {
 
-    public static boolean isNull(Strand strand, HandleValue value) {
+    public static boolean isNull(HandleValue value) {
         return value.getValue() == null;
     }
 }
