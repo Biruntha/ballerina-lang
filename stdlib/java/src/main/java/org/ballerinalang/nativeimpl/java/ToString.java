@@ -18,17 +18,12 @@
 package org.ballerinalang.nativeimpl.java;
 
 import org.ballerinalang.jvm.values.HandleValue;
-import org.ballerinalang.natives.annotations.BallerinaFunction;
 
 /**
  * This class contains the implementation of the "toString" ballerina function in ballerinax/java module.
  *
  * @since 1.0.0
  */
-@BallerinaFunction(
-        orgName = "ballerinax", packageName = "java",
-        functionName = "toString"
-)
 public class ToString {
 
     public static Object toString(HandleValue value) {
